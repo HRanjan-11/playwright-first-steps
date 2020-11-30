@@ -1,6 +1,6 @@
 let blogPosts = [];
 
-describe('', () => {
+describe('Blog - kodziak.com/blog/', () => {
   beforeAll(async () => {
     // Load blog page
     await page.goto('https://kodziak.com/blog/');
