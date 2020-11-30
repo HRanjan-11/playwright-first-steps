@@ -1,6 +1,7 @@
 let blogPosts = [];
 
 describe('Blog - kodziak.com/blog/', () => {
+  // Will trigger methods before tests
   beforeAll(async () => {
     // Load blog page
     await page.goto('https://kodziak.com/blog/');
@@ -16,11 +17,11 @@ describe('Blog - kodziak.com/blog/', () => {
   
   test('should display list of blog posts', async () => {
     // Get all blog posts as an array of objects
-    blogPosts = await page.$$eval('css=.post', elements => elements.map(element => {
+    blogPosts = await page.$$eval('css=.post', elems => elems.map(el => {
       return {
-        title: element.querySelector('.post-title').textContent.trim(),
-        description: element.querySelector('.post-description').textContent.trim(),
-        href: element.href,
+        title: el.querySelector('.post-title').textContent.trim(),
+        description: el.querySelector('.post-description').textContent.trim(),
+        href: el.href,
       }
     }));
     
@@ -29,7 +30,7 @@ describe('Blog - kodziak.com/blog/', () => {
   })
 
   test('click on blog post should redirect to article', async () => {
-    // Go to first blog post
+    // Go to first blog post, there we're waiting to resolve all promises from array
     await Promise.all([
       // Click oo .post-title css class element
       page.click('css=.post-title'),
