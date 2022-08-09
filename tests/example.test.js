@@ -15,47 +15,47 @@ describe('Blog - kodziak.com/blog/', () => {
     expect(title.includes('Przemysław Paczoski')).toBe(true);
   })
   
-  test('should display list of blog posts', async () => {
-    // Get all blog posts as an array of objects
-    blogPosts = await page.$$eval('css=.post', elems => elems.map(el => {
-      return {
-        title: el.querySelector('.post-title').textContent.trim(),
-        description: el.querySelector('.post-description').textContent.trim(),
-        href: el.href,
-      }
-    }));
+  // test('should display list of blog posts', async () => {
+  //   // Get all blog posts as an array of objects
+  //   blogPosts = await page.$$eval('css=.post', elems => elems.map(el => {
+  //     return {
+  //       title: el.querySelector('.post-title').textContent.trim(),
+  //       description: el.querySelector('.post-description').textContent.trim(),
+  //       href: el.href,
+  //     }
+  //   }));
     
-    // Check if list length is greater than 0
-    expect(blogPosts.length).toBeGreaterThan(0);
-  })
+  //   // Check if list length is greater than 0
+  //   expect(blogPosts.length).toBeGreaterThan(0);
+  // })
 
-  test('click on blog post should redirect to article', async () => {
-    // Go to first blog post, there we're waiting to resolve all promises from array
-    await Promise.all([
-      // Click oo .post-title css class element
-      page.click('css=.post-title'),
-      // Wait for networkidle event, promise resolves after event
-      page.waitForLoadState('networkidle')
-    ]);
+  // test('click on blog post should redirect to article', async () => {
+  //   // Go to first blog post, there we're waiting to resolve all promises from array
+  //   await Promise.all([
+  //     // Click oo .post-title css class element
+  //     page.click('css=.post-title'),
+  //     // Wait for networkidle event, promise resolves after event
+  //     page.waitForLoadState('networkidle')
+  //   ]);
 
-    // Get title, content and href of current article
-    const [articleTitle, articleContent, articleHref] = await Promise.all([
-      // Get article title, we use here array destructuring
-      page.$eval('css=h2', el => el.textContent.trim()),
-      // Get article content
-      page.$eval('css=.content', el => el.textContent),
-      // Get article href
-      page.url()
-    ]);
+  //   // Get title, content and href of current article
+  //   const [articleTitle, articleContent, articleHref] = await Promise.all([
+  //     // Get article title, we use here array destructuring
+  //     page.$eval('css=h2', el => el.textContent.trim()),
+  //     // Get article content
+  //     page.$eval('css=.content', el => el.textContent),
+  //     // Get article href
+  //     page.url()
+  //   ]);
 
-    // Destructuring first element from an blog posts array. First we use array destructuring and then object destructuring
-    const [{title, description, href}] = blogPosts;
+  //   // Destructuring first element from an blog posts array. First we use array destructuring and then object destructuring
+  //   const [{title, description, href}] = blogPosts;
     
-    // Compare title from posts list with current article's title
-    expect(title).toBe(articleTitle);
-    // Check if the current article content includes description from posts list, compare output with boolean true
-    expect(articleContent.includes(description)).toBe(true);
-    // Compare href from posts list with current article's href
-    expect(href).toBe(articleHref);
-  })
+  //   // Compare title from posts list with current article's title
+  //   expect(title).toBe(articleTitle);
+  //   // Check if the current article content includes description from posts list, compare output with boolean true
+  //   expect(articleContent.includes(description)).toBe(true);
+  //   // Compare href from posts list with current article's href
+  //   expect(href).toBe(articleHref);
+  // })
 })
