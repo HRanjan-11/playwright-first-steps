@@ -1,7 +1,7 @@
 module.exports = {
   browsers: ['chromium', 'firefox', 'webkit'],
   launchOptions: {
-    headless: false,
+    headless: true,
     devtools: false,
   }
 }

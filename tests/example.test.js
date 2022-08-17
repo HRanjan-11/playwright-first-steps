@@ -14,7 +14,39 @@ describe('Blog - kodziak.com/blog/', () => {
     // Check if title include string, then compare output to boolean true
     expect(title.includes('Przemysław Paczoski')).toBe(true);
   })
+
+  test('title should contain "Przemysław Paczoski" -1', async () => {
+    // Get website title
+    const title = await page.title();
+
+    // Check if title include string, then compare output to boolean true
+    expect(title.includes('Przemysław Paczoski')).toBe(true);
+  })
+
+  test('title should contain "Przemysław Paczoski" -2', async () => {
+    // Get website title
+    const title = await page.title();
+
+    // Check if title include string, then compare output to boolean true
+    expect(title.includes('Przemysław Paczoski')).toBe(true);
+  })
   
+  test('title should contain "Przemysław Paczoski" -3', async () => {
+    // Get website title
+    const title = await page.title();
+
+    // Check if title include string, then compare output to boolean true
+    expect(title.includes('Przemysław Paczoski')).toBe(true);
+  })
+
+  test('title should contain "Przemysław Paczoski" -4', async () => {
+    // Get website title
+    const title = await page.title();
+
+    // Check if title include string, then compare output to boolean true
+    expect(title.includes('Przemysław Paczoski')).toBe(true);
+  })
+
   // test('should display list of blog posts', async () => {
   //   // Get all blog posts as an array of objects
   //   blogPosts = await page.$$eval('css=.post', elems => elems.map(el => {
