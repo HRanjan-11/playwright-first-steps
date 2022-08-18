@@ -32,10 +32,10 @@ describe('Blog - kodziak.com/blog/', () => {
     expect(title.includes('Przemysław Paczoski')).toBe(true);
   })
   
-  test('should work -1', async () => {
-    await page.goto('https://www.example.com');
-    expect(await page.title()).toBe('Example Domain');
-  }, 700)
+  // test('should work -1', async () => {
+  //   await page.goto('https://www.example.com');
+  //   expect(await page.title()).toBe('Example Domain');
+  // }, 700)
 
   // test('should work -2 ', async () => {
   //   await page.goto('https://www.example.com');
