@@ -42,19 +42,19 @@ describe('Blog - kodziak.com/blog/', () => {
   //   expect(await page.title()).toBe('Example Domain');
   // }, 300)
 
-  test('should display list of blog posts', async () => {
-    // Get all blog posts as an array of objects
-    blogPosts = await page.$$eval('css=.post', elems => elems.map(el => {
-      return {
-        title: el.querySelector('.post-title').textContent.trim(),
-        description: el.querySelector('.post-description').textContent.trim(),
-        href: el.href,
-      }
-    }));
+  // test('should display list of blog posts', async () => {
+  //   // Get all blog posts as an array of objects
+  //   blogPosts = await page.$$eval('css=.post', elems => elems.map(el => {
+  //     return {
+  //       title: el.querySelector('.post-title').textContent.trim(),
+  //       description: el.querySelector('.post-description').textContent.trim(),
+  //       href: el.href,
+  //     }
+  //   }));
     
-    // Check if list length is greater than 0
-    expect(blogPosts.length).toBe(0);
-  })
+  //   // Check if list length is greater than 0
+  //   expect(blogPosts.length).toBe(0);
+  // })
 
   test('should work', async () => {
     await page.goto('https://www.example.com');
