@@ -37,10 +37,10 @@ describe('Blog - kodziak.com/blog/', () => {
     expect(await page.title()).toBe('Example Domain');
   }, 300)
 
-  test('should work -2 ', async () => {
-    await page.goto('https://www.example.com');
-    expect(await page.title()).toBe('Example Domain');
-  }, 300)
+  // test('should work -2 ', async () => {
+  //   await page.goto('https://www.example.com');
+  //   expect(await page.title()).toBe('Example Domain');
+  // }, 300)
 
   test('should display list of blog posts', async () => {
     // Get all blog posts as an array of objects
