@@ -35,12 +35,12 @@ describe('Blog - kodziak.com/blog/', () => {
   test('should work -1', async () => {
     await page.goto('https://www.example.com');
     expect(await page.title()).toBe('Example Domain');
-  })
+  }, 300)
 
   test('should work -2 ', async () => {
     await page.goto('https://www.example.com');
     expect(await page.title()).toBe('Example Domain');
-  })
+  }, 300)
 
   test('should display list of blog posts', async () => {
     // Get all blog posts as an array of objects
@@ -59,7 +59,7 @@ describe('Blog - kodziak.com/blog/', () => {
   test('should work', async () => {
     await page.goto('https://www.example.com');
     expect(await page.title()).toBe('Example Domain');
-  })
+  }, 300)
 
   // test('click on blog post should redirect to article', async () => {
   //   // Go to first blog post, there we're waiting to resolve all promises from array
