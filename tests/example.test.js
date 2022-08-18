@@ -4,6 +4,7 @@ describe('Blog - kodziak.com/blog/', () => {
   // Will trigger methods before tests
   beforeAll(async () => {
     // Load blog page
+    // jest.setTimeout(600);
     await page.goto('https://kodziak.com/blog/');
   })
 
@@ -31,35 +32,34 @@ describe('Blog - kodziak.com/blog/', () => {
     expect(title.includes('Przemysław Paczoski')).toBe(true);
   })
   
-  test('title should contain "Przemysław Paczoski" -3', async () => {
-    // Get website title
-    const title = await page.title();
-
-    // Check if title include string, then compare output to boolean true
-    expect(title.includes('Przemysław Paczoski')).toBe(true);
+  test('should work -1', async () => {
+    await page.goto('https://www.example.com');
+    expect(await page.title()).toBe('Example Domain');
   })
 
-  test('title should contain "Przemysław Paczoski" -4', async () => {
-    // Get website title
-    const title = await page.title();
-
-    // Check if title include string, then compare output to boolean true
-    expect(title.includes('Przemysław Paczoski')).toBe(true);
+  test('should work -2 ', async () => {
+    await page.goto('https://www.example.com');
+    expect(await page.title()).toBe('Example Domain');
   })
 
-  // test('should display list of blog posts', async () => {
-  //   // Get all blog posts as an array of objects
-  //   blogPosts = await page.$$eval('css=.post', elems => elems.map(el => {
-  //     return {
-  //       title: el.querySelector('.post-title').textContent.trim(),
-  //       description: el.querySelector('.post-description').textContent.trim(),
-  //       href: el.href,
-  //     }
-  //   }));
+  test('should display list of blog posts', async () => {
+    // Get all blog posts as an array of objects
+    blogPosts = await page.$$eval('css=.post', elems => elems.map(el => {
+      return {
+        title: el.querySelector('.post-title').textContent.trim(),
+        description: el.querySelector('.post-description').textContent.trim(),
+        href: el.href,
+      }
+    }));
     
-  //   // Check if list length is greater than 0
-  //   expect(blogPosts.length).toBeGreaterThan(0);
-  // })
+    // Check if list length is greater than 0
+    expect(blogPosts.length).toBe(0);
+  })
+
+  test('should work', async () => {
+    await page.goto('https://www.example.com');
+    expect(await page.title()).toBe('Example Domain');
+  })
 
   // test('click on blog post should redirect to article', async () => {
   //   // Go to first blog post, there we're waiting to resolve all promises from array
